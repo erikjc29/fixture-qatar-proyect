@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sign in User</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-div >
+    <form class="form-login">
+      <div class="cont-form-back">
+        <div class="contenedor-form">
+          
+          <div class="form-content-op">
+
+            <ion-img class="img-logo" src="../../assets/Qatar2022.png"></ion-img>  
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" #email required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" #password required></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <button
+            type="submit"
+            (click)="logIn(email, password)"
+            expand="block"
+            class="btn-login-form"
+            >Login</button>
+        </ion-col>
+      </ion-row>
+      <span class="divider line one-line">or</span>
+      <ion-row>
+        <ion-col>
+          <button
+            type="submit"
+            (click)="authService.GoogleAuth()"
+            expand="block"
+            class="btn-login-form">
+            Login with Google
+            <img src="https://img.icons8.com/color/48/000000/google-logo.png"/>
+          </button>
+        </ion-col>
+      </ion-row>
+    </div>
+    </div>
+    </div>
+    </form>
+  
+  </ion-div>
+  
+</ion-content>
