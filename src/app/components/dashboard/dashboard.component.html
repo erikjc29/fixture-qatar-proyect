@@ -1,0 +1,47 @@
+<ion-buttons slot="start">
+  <ion-menu-button color="primary" menu="first">
+  </ion-menu-button>
+</ion-buttons>
+<app-menu></app-menu>
+<ion-content>  
+  <!-- <ion-router-outlet id="main-content"></ion-router-outlet> -->
+  <!-- <div class="contenedor-principal" *ngFor="let match of matchs">
+    <div class="cont-cart"> 
+        <div class="flex-content">
+          <div class="team-logo">
+            <img class="img-flag" src="https://countryflagsapi.com/png/{{match.local_team_name}}" alt="{{match.local_team_name}}"/>
+            <h1>{{match.local_team_name}}</h1>
+            </div>
+          <div class="cont-info">
+            <h2>Fecha: {{match.match_date_cdt}}</h2>
+            <h3>Estadio: {{match.stadium}}</h3>
+          </div>
+          <div class="team-logo">
+            <img class="img-flag" src="https://countryflagsapi.com/png/{{match.visit_team_name}}" alt="{{match.visit_team_shortname}}"/>
+            <h1>{{match.visit_team_name}}</h1>
+          </div>
+        </div> 
+        <ion-button>Ver Detalles</ion-button>        
+    </div>  
+  </div> -->
+
+  <ion-list>
+<ion-item *ngFor="let match of matchs" [routerLink]="['/partido/'+ match.id]">
+
+  <ion-label><ion-avatar slot="start"><img src="https://countryflagsapi.com/png/{{match.local_team_name == 'Korea Repulic' ? 'The Republic Of Korea': (match.local_team_name == 'IR Iran'? 'Iran' : match.local_team_name)}}" alt="{{match.local_team_name}}"></ion-avatar></ion-label>
+  
+  <ion-label class="ion-text-center">
+    {{match.local_team_shortname}}
+  </ion-label>
+  <ion-label class="ion-text-center">VS</ion-label>
+  <ion-label class="ion-text-center">{{match.visit_team_shortname}}</ion-label>
+  <ion-label>
+    <ion-avatar slot="end"><img src="https://countryflagsapi.com/png/{{match.visit_team_name == 'Korea Repulic' ? 'The Republic Of Korea': (match.visit_team_name == 'IR Iran'? 'Iran' : match.visit_team_name)}}" alt="{{match.visit_team_shortname}}"></ion-avatar>
+  </ion-label>
+ 
+  
+</ion-item>
+
+  </ion-list>
+</ion-content>
+  

@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Pais</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-content *ngIf="infoPaisBol==true; else elsetag">
+            <ion-grid *ngFor="let info of infoPais" class="ion-tex-center" >
+                
+              <ng-container>
+              
+              <ion-row class="ion-text-center">
+                    <ion-col size="12" size-sm="3">
+                        <img src="{{info.flags.png}}">
+                    </ion-col>
+                    <ion-col size="12" size-sm="3">
+                        <ion-label>
+                            <strong>{{info.altSpellings}}</strong>
+                        </ion-label>
+                    </ion-col>
+                    <ion-col size="12" size-sm="3">
+                        <ion-label>Capital:
+                            <strong>{{info.capital}}</strong>
+                        </ion-label>
+                    </ion-col>
+                    <ion-col size="12" size-sm="3">
+
+                        <img class="logo" src="{{info.coatOfArms.png}}" alt="">
+
+                    </ion-col>
+                    <ion-col size="12" size-sm="3">
+                        <ion-label>Continente:
+                            <strong>{{info.continents}}</strong>
+                        </ion-label>
+                    </ion-col>
+                    <ion-col size="12" size-sm="3">
+                        <ion-label>
+                            Paises vecinos:
+                            <strong>{{info.borders}}</strong>
+                        </ion-label>
+                    </ion-col>
+                    <ion-col size="12" size-sm="3">
+                        <a href="{{info.maps.googleMaps}}">
+                            Google Maps:
+                            {{info.maps.googleMaps}}
+                        </a>
+                    </ion-col>
+                </ion-row>
+              </ng-container>
+
+              
+            </ion-grid>
+
+        </ion-card-content>
+        <ng-template #elsetag>
+            <ion-grid>
+                <ion-row class="ion-text-center">
+                    <ion-col size="12" size-sm="3">
+                        <ion-img class="logo-img" src="https://logodownload.org/wp-content/uploads/2018/07/world-cup-2022-logo-1.png" alt="logo-qatar"></ion-img>
+                    </ion-col>
+                    <ion-col size="12" size-sm="3">
+                        <ion-label><strong>Error 404</strong></ion-label>
+                    </ion-col>
+                    <ion-col size="12" size-sm="3">
+                        <ion-label><strong>
+                            No se pudo encontra informacion. Intentelo de nuevo mas tarde.
+                        </strong> </ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            </ng-template>
+
+    </ion-card>
+
+</ion-content>

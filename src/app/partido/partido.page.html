@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>partido</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-label *ngFor="let id of data">
+
+    <ion-card-content *ngIf="id.id==partidoId ;else">
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-sm="3" class="center-col ion-text-center">
+            <ion-label><strong>{{id.round}}</strong> </ion-label>
+            
+          </ion-col>
+          <ion-col class="ion-text-center" [routerLink]="['/pais/'+ id.local_team_name]">
+            <ion-label>
+             <ion-avatar class="img-logo-pais">
+              <img src="https://countryflagsapi.com/png/{{ id.local_team_name == 'Korea Repulic' ? 'The Republic Of Korea' : (id.local_team_name=='IR Iran'? 'Iran': id.local_team_name)}}" alt="{{id.local_team_shortname}}">
+            </ion-avatar> 
+            </ion-label>
+            
+              <ion-label class="ion-text-center"><strong>{{id.local_team_name}}</strong></ion-label>
+          </ion-col >
+          <ion-col class="center-col ion-text-center">
+            <ion-label>vs</ion-label>
+          </ion-col>
+          <ion-col class="ion-text-center" [routerLink]="['/pais/'+ id.visit_team_name]">
+            <ion-label>
+            <ion-avatar class="img-logo-pais">
+              <img src="https://countryflagsapi.com/png/{{id.visit_team_name == 'Korea Repulic' ? 'The Republic Of Korea' : (id.visit_team_name=='IR Iran'?'Iran' : id.visit_team_name)}}" alt="{{id.visit_team_shortname}}">
+            </ion-avatar>  
+            </ion-label>
+            
+            <ion-label class="ion-text-center"><strong> {{id.visit_team_name}}</strong></ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      
+     
+      <ion-grid>
+        <ion-row>
+         
+          <ion-col size="12" size-sm="3" class="center-col ion-text-center">
+            <ion-label>Estadio: <strong>{{id.stadium}}</strong> </ion-label>
+            
+          </ion-col>
+          <ion-col size="12" size-sm="3" class="ion-text-center">
+           <strong>Horarios</strong> 
+          </ion-col>
+          <ion-col size="12" size-sm="3" class="ion-text-center">
+            Atlantic Standard Time (AST): <strong>{{id.match_date_ast}} </strong>
+            
+           </ion-col>
+           <ion-col size="12" size-sm="3" class="ion-text-center">
+          Central Time (CT): <strong>{{id.match_date_cdt}}</strong>
+            
+           </ion-col>
+           <ion-col size="12" size-sm="3" class="ion-text-center">
+            Coordinated Universal Time (UTC): <strong>{{id.match_date_utc}}</strong>
+            
+           </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card-content>
+
+  </ion-label>
+</ion-card>
+</ion-content>
